@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import './Kennel.css'
-import AnimalCard from './animal/AnimalCard';
-import EmployeeCard from './employee/EmployeeCard.js';
-import LocationCard from './location/LocationCard.js';
-import OwnerCard from './owner/OwnerCard.js';
 import NavBar from './nav/NavBar.js';
 import ApplicationViews from './ApplicationViews.js';
+
+/* This component is the "main" app and returns the Navigation bar and application views */
 
 class Kennel extends Component {
     render() {

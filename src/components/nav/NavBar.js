@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom"
 import './NavBar.css'
 
+/* This component creates the navigation bar for the web app */
+
 class NavBar extends Component {
 
   render(){

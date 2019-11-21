@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from "react-router-dom";
 import Kennel from './components/Kennel';
 
+/* This component handles putting the whole app on the DOM */
+
 ReactDOM.render(
 <Router>
     <Kennel />
