@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalDetail.css'
 
-/* This component renders the individual item when the details button is clicked */
+/* This component renders the individual database item when the details button is clicked */
 
 class AnimalDetail extends Component {
 
@@ -12,8 +12,10 @@ class AnimalDetail extends Component {
         loadingStatus: true,
     }
 
+/* This part says: go to Animal manager and get  */
+
     componentDidMount(){
-        console.log("AnimalDetail: ComponentDidMount");
+        // console.log("AnimalDetail: ComponentDidMount");
         //get(id) from AnimalManager and hang on to that data; put it into state
         AnimalManager.get(this.props.animalId)
         .then((animal) => {
@@ -33,6 +35,7 @@ class AnimalDetail extends Component {
     }
 
     render() {
+        // console.log("!!!!!!!", this.props.animalId)
       return (
         <div className="card">
           <div className="card-content">

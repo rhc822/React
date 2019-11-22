@@ -30,7 +30,7 @@ deleteLocation = id => {
 }
 
 render(){
-    console.log(this.state)
+    // console.log(this.state)
     return(
         <div className="container-cards">
             {this.state.locations.map(location =>

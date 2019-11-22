@@ -12,11 +12,11 @@ class AnimalList extends Component {
     }
 
 componentDidMount(){
-    console.log("ANIMAL LIST: ComponentDidMount");
+    // console.log("ANIMAL LIST: ComponentDidMount");
     // getAll from AnimalManager and hang on to that data; put it in state
     AnimalManager.getAll()
     .then((animalArray) => {
-        console.log(animalArray)
+        // console.log(animalArray)
         this.setState({
             animals: animalArray
         })
@@ -38,21 +38,31 @@ deleteAnimal = id => {
   }
 
   render(){
-    console.log("AnimalList: Render");
-    console.log(this.state.animals)
+    // console.log("AnimalList: Render");
+    // console.log(this.state.animals)
 
     /* For adding delete, the return definition was modified to include the deleteAnimal function above, which enables AnimalCard to access it. */
+
     return(
-      <div className="container-cards">
-        {this.state.animals.map(animal =>
-          <AnimalCard
-            key={animal.id}
-            animal={animal}
-            deleteAnimal={this.deleteAnimal}
-          />
-        )}
-      </div>
-    )
+        <React.Fragment>
+        <section className="section-content">
+            <button type="button"
+                className="btn"
+                onClick={() => {this.props.history.push("/animals/new")}}>
+                Admit Animal
+            </button>
+        </section>
+        <div className="container-cards">
+            {this.state.animals.map(animal =>
+            <AnimalCard
+                key={animal.id}
+                animal={animal}
+                deleteAnimal={this.deleteAnimal}
+            />
+            )}
+        </div>
+        </React.Fragment>
+        )
   }
 }
 

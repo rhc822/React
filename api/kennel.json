@@ -9,6 +9,21 @@
       "id": 2,
       "name": "Fido",
       "breed": "pug"
+    },
+    {
+      "name": "Ada",
+      "breed": "Terrier",
+      "id": 3
+    },
+    {
+      "name": "Matt",
+      "breed": "pitbull",
+      "id": 4
+    },
+    {
+      "name": "Tinker",
+      "breed": "Beagle",
+      "id": 5
     }
   ],
   "employees": [
