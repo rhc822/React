@@ -13,7 +13,7 @@ class LocationDetail extends Component {
 /* compoenentDidMount gets an individual location (via ID) then sets the state to that location. */
 
     componentDidMount(){
-        LocationsManager.get(this.props.locationID)
+        LocationsManager.get(this.props.locationId)
             .then((location) => {
                 this.setState({
                     address: location.address
@@ -22,7 +22,6 @@ class LocationDetail extends Component {
     }
 
 /* This section puts the info on the DOM */
-
     render() {
         return (
             <div className="card">

@@ -8,7 +8,9 @@ import AnimalForm from './animal/AnimalForm'
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import EmployeeList from './employee/EmployeeList'
+import EmployeeDetail from './employee/EmployeeDetail'
 import OwnerList from './owner/OwnerList'
+import OwnerDetail from './owner/OwnerDetail'
 
 /* This component routes the click in the NavBar file to apporpriate component (e.g. Home, AnimalList, etc). */
 
@@ -17,9 +19,11 @@ class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
+
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
+
         <Route path="/animals/new" render={(props) => {
           return <AnimalForm {...props} />
         }} />
@@ -27,6 +31,7 @@ class ApplicationViews extends Component {
         <Route exact path="/animals" render={(props) => {
           return <AnimalList {...props}/>
         }} />
+
         <Route path="/animals/:animalId(\d+)" render={(props) => {
           // console.log(props)
 // props.match.params.animalId grabs the ID from the URL.
@@ -43,17 +48,29 @@ class ApplicationViews extends Component {
   matches only numbers after the final slash in the URL
   http://localhost:3000/animals/jack
 */}
-        <Route path="/employees" render={(props) => {
+        <Route exact path="/employees" render={(props) => {
             return <EmployeeList />
         }} />
+
+        <Route path="/employee/:employeeId(\d+)" render={(props) => {
+            return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}/>
+        }} />
+
         <Route exact path="/locations" render={(props) => {
             return <LocationList />
         }} />
-        <Route path="/locations/:locationId(\d+)" render={(props) =>{
+
+        <Route path="/locations/:locationId(\d+)" render={(props) => {
           return <LocationDetail locationId={parseInt(props.match.params.locationId)}/>
         }} />
-        <Route path="/owners" render={(props) => {
+
+        <Route exact path="/owners" render={(props) => {
             return <OwnerList />
+        }} />
+
+        <Route path="/owners/:ownerId(\d+)" render={(props) => {
+          return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}
+          {...props}/>
         }} />
       </React.Fragment>
     )
