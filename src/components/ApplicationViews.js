@@ -1,20 +1,26 @@
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
 import Home from './home/Home'
 import AnimalList from './animal/AnimalList'
 import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animal/AnimalForm'
-//only include these once they are built - previous practice exercise
+import AnimalEditForm from './animal/AnimalEditForm'
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
+import Login from './auth/Login'
+
 
 /* This component routes the click in the NavBar file to apporpriate component (e.g. Home, AnimalList, etc). */
 
 class ApplicationViews extends Component {
+
+  // Check if credentials are in local storage
+  // returns true/false
+  isAuthenticated = () => localStorage.getItem("credentials") !== null
 
   render() {
     return (
@@ -28,11 +34,15 @@ class ApplicationViews extends Component {
           return <AnimalForm {...props} />
         }} />
 {/* {Make sure you add the `exact` attribute here} */}
-        <Route exact path="/animals" render={(props) => {
-          return <AnimalList {...props}/>
+        <Route exact path="/animals" render={props => {
+            if (this.isAuthenticated()) {
+                return <AnimalList {...props} />
+            } else {
+                return <Redirect to="/login" />
+            }
         }} />
 
-        <Route path="/animals/:animalId(\d+)" render={(props) => {
+        <Route exact path="/animals/:animalId(\d+)" render={(props) => {
           // console.log(props)
 // props.match.params.animalId grabs the ID from the URL.
           return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
@@ -48,6 +58,12 @@ class ApplicationViews extends Component {
   matches only numbers after the final slash in the URL
   http://localhost:3000/animals/jack
 */}
+
+        <Route
+          path="/animals/:animalId(\d+)/edit" render={props => {
+            return <AnimalEditForm {...props} />
+          }} />
+
         <Route exact path="/employees" render={(props) => {
             return <EmployeeList />
         }} />
@@ -72,6 +88,9 @@ class ApplicationViews extends Component {
           return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}
           {...props}/>
         }} />
+
+        <Route path="/login" component={Login} />
+
       </React.Fragment>
     )
   }
