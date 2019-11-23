@@ -23,7 +23,7 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
-
+{/* ...props gives access to all properties */}
         <Route path="/animals/new" render={(props) => {
           return <AnimalForm {...props} />
         }} />
@@ -53,7 +53,7 @@ class ApplicationViews extends Component {
         }} />
 
         <Route path="/employee/:employeeId(\d+)" render={(props) => {
-            return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}/>
+            return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} {...props}/>
         }} />
 
         <Route exact path="/locations" render={(props) => {
@@ -61,7 +61,7 @@ class ApplicationViews extends Component {
         }} />
 
         <Route path="/locations/:locationId(\d+)" render={(props) => {
-          return <LocationDetail locationId={parseInt(props.match.params.locationId)}/>
+          return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props}/>
         }} />
 
         <Route exact path="/owners" render={(props) => {
