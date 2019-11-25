@@ -9,6 +9,7 @@ import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
+import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
 import Login from './auth/Login'
@@ -65,11 +66,15 @@ class ApplicationViews extends Component {
           }} />
 
         <Route exact path="/employees" render={(props) => {
-            return <EmployeeList />
+            return <EmployeeList {...props}/>
         }} />
 
         <Route path="/employee/:employeeId(\d+)" render={(props) => {
             return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)}/>
+        }} />
+
+        <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
+            return <EmployeeWithAnimals {...props} />
         }} />
 
         <Route exact path="/locations" render={(props) => {

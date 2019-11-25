@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import AnimalManager from "../../modules/AnimalManager"
+import EmployeeManager from "../../modules/EmployeeManager"
 import "./AnimalForm.css"
 
 class AnimalEditForm extends Component {
@@ -66,6 +67,20 @@ class AnimalEditForm extends Component {
               />
               <label htmlFor="breed">Breed</label>
             </div>
+
+            <select
+                className="form-control"
+                id="employeeId"
+                value={this.state.employeeId}
+                onChange={this.handleFieldChange}
+                >
+                    {this.state.employees.map(employee =>
+                        <option key={employee.id} value={employee.id}>
+                        {employee.name}
+                        </option>
+                    )}
+            </select>
+
             <div className="alignRight">
               <button
                 type="button" disabled={this.state.loadingStatus}
