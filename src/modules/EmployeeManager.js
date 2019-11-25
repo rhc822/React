@@ -15,7 +15,7 @@ export default {
     })
     .then(result => result.json())
   },
-  post(new) {
+  post(newEmployee) {
     return fetch(`${remoteURL}/employees`, {
       method: "POST",
       headers: {

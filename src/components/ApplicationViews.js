@@ -9,7 +9,7 @@ import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
-// import EmployeeForm from './employee/EmployeeForm'
+import EmployeeForm from './employee/EmployeeForm'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
 
@@ -57,9 +57,9 @@ class ApplicationViews extends Component {
             return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} {...props}/>
         }} />
 
-        {/* <Route path="/employees/new" render={(props) => {
+        <Route path="/employees/new" render={(props) => {
             return <EmployeeForm {...props} />
-        }} /> */}
+        }} />
 
         <Route exact path="/locations" render={(props) => {
             return <LocationList />
