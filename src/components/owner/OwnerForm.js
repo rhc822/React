@@ -9,6 +9,8 @@ class OwnerForm extends Component {
         loadingStatus: false,
     };
 
+/* This function requires the state info above have the same keys as the IDs in the inputs below (in the render() function) */
+
     handleFieldChange = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
@@ -42,19 +44,19 @@ render(){
                         type="text"
                         required
                         onChange={this.handleFieldChange}
-                        id="ownerName"
+                        id="name"
                         placeholder="Owner Name">
                     </input>
-                    <label htmlFor="ownerName">Name
+                    <label htmlFor="name">Name
                     </label>
                     <input
                         type="text"
                         required
                         onChange={this.handleFieldChange}
-                        id="ownerPhone"
+                        id="phone"
                         placeholder="Owner Phone number">
                     </input>
-                    <label htmlFor="ownerPhone">Phone
+                    <label htmlFor="phone">Phone
                     </label>
                 </div>
                 <div className="alignRight">
