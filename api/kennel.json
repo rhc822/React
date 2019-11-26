@@ -38,12 +38,24 @@
     {
       "name": "Carl",
       "id": 3
+    },
+    {
+      "name": "Zargis",
+      "id": 4
     }
   ],
   "locations": [
     {
       "id": 1,
       "address": "500 Puppy Way"
+    },
+    {
+      "address": "200 Kitty Way",
+      "id": 2
+    },
+    {
+      "address": "100 Lizard Street",
+      "id": 3
     }
   ],
   "owners": [

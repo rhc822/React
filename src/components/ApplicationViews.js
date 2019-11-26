@@ -7,11 +7,13 @@ import AnimalForm from './animal/AnimalForm'
 //only include these once they are built - previous practice exercise
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
+import LocationForm from './location/LocationForm'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
 import EmployeeForm from './employee/EmployeeForm'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
+import OwnerForm from './owner/OwnerForm'
 
 /* This component routes the click in the NavBar file to apporpriate component (e.g. Home, AnimalList, etc). */
 
@@ -62,21 +64,30 @@ class ApplicationViews extends Component {
         }} />
 
         <Route exact path="/locations" render={(props) => {
-            return <LocationList />
+            return <LocationList {...props}/>
         }} />
 
         <Route path="/locations/:locationId(\d+)" render={(props) => {
           return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props}/>
         }} />
 
+        <Route path="/locations/new" render={(props) => {
+          return <LocationForm {...props} />
+        }} />
+
         <Route exact path="/owners" render={(props) => {
-            return <OwnerList />
+            return <OwnerList {...props}/>
         }} />
 
         <Route path="/owners/:ownerId(\d+)" render={(props) => {
           return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}
           {...props}/>
         }} />
+
+        <Route path='/owners/new' render={(props) => {
+          return <OwnerForm { ...props} />
+        }} />
+
       </React.Fragment>
     )
   }
