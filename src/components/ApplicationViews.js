@@ -1,6 +1,7 @@
-import { Route } from 'react-router-dom'
+import { Route, withRouter, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
 import Home from './home/Home'
+import Login from './auth/Login'
 import AnimalList from './animal/AnimalList'
 import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animal/AnimalForm'
@@ -19,10 +20,14 @@ import OwnerForm from './owner/OwnerForm'
 
 class ApplicationViews extends Component {
 
+/* Just a function called by Route requests below and checks to see if there is an item in local storage called "credentials" */
+
+isAuthenticated = () => localStorage.getItem("credentials") !== null
+
   render() {
     return (
       <React.Fragment>
-
+        <Route path="/login" component={Login} />
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
@@ -32,7 +37,11 @@ class ApplicationViews extends Component {
         }} />
 {/* {Make sure you add the `exact` attribute here} */}
         <Route exact path="/animals" render={(props) => {
-          return <AnimalList {...props}/>
+          if (this.isAuthenticated()) {
+            return <AnimalList {...props}/>
+          } else {
+            return <Redirect to="/login"/>
+          }
         }} />
 
         <Route path="/animals/:animalId(\d+)" render={(props) => {
@@ -52,7 +61,11 @@ class ApplicationViews extends Component {
   http://localhost:3000/animals/jack
 */}
         <Route exact path="/employees" render={(props) => {
+          if (this.isAuthenticated()) {
             return <EmployeeList {...props}/>
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
 
         <Route path="/employees/:employeeId(\d+)" render={(props) => {
@@ -64,7 +77,11 @@ class ApplicationViews extends Component {
         }} />
 
         <Route exact path="/locations" render={(props) => {
+          if (this.isAuthenticated()) {
             return <LocationList {...props}/>
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
 
         <Route path="/locations/:locationId(\d+)" render={(props) => {
@@ -76,7 +93,11 @@ class ApplicationViews extends Component {
         }} />
 
         <Route exact path="/owners" render={(props) => {
+          if (this.isAuthenticated()) {
             return <OwnerList {...props}/>
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
 
         <Route path="/owners/:ownerId(\d+)" render={(props) => {
