@@ -37,6 +37,7 @@ render(){
                     key={employee.id}
                     employee={employee} /* This employee comes from the map employee */
                     deleteEmployee={this.deleteEmployee}
+                    {...this.props}
                 />
             )}
             </div>

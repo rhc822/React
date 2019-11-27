@@ -45,12 +45,12 @@
       "id": 3
     },
     {
-      "name": "Zargis",
-      "id": 4
-    },
-    {
       "name": "Cletus",
       "id": 5
+    },
+    {
+      "name": "Plarken",
+      "id": 6
     }
   ],
   "locations": [
@@ -61,14 +61,6 @@
     {
       "address": "200 Kitty Way",
       "id": 2
-    },
-    {
-      "address": "100 Lizard Street",
-      "id": 3
-    },
-    {
-      "address": "666 Hellhound Road",
-      "id": 4
     }
   ],
   "owners": [

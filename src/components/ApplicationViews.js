@@ -9,6 +9,7 @@ import AnimalEditForm from './animal/AnimalEditForm'
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import LocationForm from './location/LocationForm'
+import EmployeeEditForm from './employee/EmployeeEditForm'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
 import EmployeeForm from './employee/EmployeeForm'
@@ -61,10 +62,13 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
   http://localhost:3000/animals/jack
 */}
 
-        <Route
-          path="/animals/:animalId(\d+)/edit" render={props => {
+        <Route path="/animals/:animalId(\d+)/edit" render={props => {
             return <AnimalEditForm {...props} />
           }} />
+
+        <Route path="/employees/:employeeId(\d+)/edit" render={props => {
+          return <EmployeeEditForm {...props} />
+        }} />
 
         <Route exact path="/employees" render={(props) => {
           if (this.isAuthenticated()) {
@@ -74,7 +78,7 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
           }
         }} />
 
-        <Route path="/employees/:employeeId(\d+)" render={(props) => {
+        <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
             return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} {...props}/>
         }} />
 

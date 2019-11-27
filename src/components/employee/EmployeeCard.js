@@ -10,8 +10,23 @@ class EmployeeCard extends Component {
                     <img src={require("./employee.jpg")} alt="pet shop employee" />
                 </picture>
                 <h3>Employee Name: <span className="card-employeename">{this.props.employee.name}</span></h3>
-                <button type="button" onClick={() => this.props.deleteEmployee(this.props.employee.id)}>Fire</button>
-                <Link to={`/employee/${this.props.employee.id}`}><button>Details</button></Link>
+                <button
+                    type="button"
+                    onClick={() => {this.props.history.push(`/employees/${this.props.employee.id}/edit`)}}>
+                        Edit
+                </button>
+                <Link
+                    to={`/employee/${this.props.employee.id}`}>
+                        <button>
+                            Details
+                        </button>
+                </Link>
+                <button
+                    type="button"
+                    onClick={() => this.props.deleteEmployee(this.props.employee.id)}>
+                        Fire
+                </button>
+
 
             </div>
         </div>

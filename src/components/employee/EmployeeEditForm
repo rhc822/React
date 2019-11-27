@@ -1,2 +1,0 @@
-import React, { Component } from "React"
-import EmployeeManager from "../../modules/EmployeeManager"
