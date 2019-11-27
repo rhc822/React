@@ -30,15 +30,25 @@ deleteEmployee = id => {
 
 render(){
     return (
-        <div className="container-cards">
-        {this.state.employees.map(employee =>
-            <EmployeeCard
-                key={employee.id}
-                employee={employee} /* This employee comes from the map employee */
-                deleteEmployee={this.deleteEmployee}
-            />
-        )}
-        </div>
+        <React.Fragment>
+            <div className="container-cards">
+            {this.state.employees.map(employee =>
+                <EmployeeCard
+                    key={employee.id}
+                    employee={employee} /* This employee comes from the map employee */
+                    deleteEmployee={this.deleteEmployee}
+                />
+            )}
+            </div>
+            <section className="section-content">
+                <button
+                    type="button"
+                    className="btn"
+                    onClick={() => {this.props.history.push("/employees/new")}}>
+                        Add Employee
+                </button>
+            </section>
+        </React.Fragment>
         )
     }
 }

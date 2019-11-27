@@ -13,5 +13,14 @@ export default {
     return fetch(`${remoteURL}/locations/${id}`, {
       method: "DELETE"
     })
+  },
+  post(newLocation) {
+    return fetch(`${remoteURL}/locations`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newLocation)
+    }).then(data => data.json())
   }
 }

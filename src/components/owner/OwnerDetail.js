@@ -8,6 +8,7 @@ class OwnerDetail extends Component {
 state = {
     name: "",
     phone: "",
+    loadingStatus: true,
 }
 
 componentDidMount(){
@@ -15,10 +16,17 @@ componentDidMount(){
         .then((owner) => {
             this.setState({
                 name: owner.name,
-                phone: owner.phone
+                phone: owner.phone,
+                loadingStatus: false
                 })
             })
         }
+
+handleDelete = () => {
+    this.setState({loadingStatus: true})
+    OwnersManager.delete(this.props.ownerId)
+    .then(() => this.props.history.push("/owners"))
+}
 
 render() {
     console.log(this.props.ownerId)
@@ -30,6 +38,7 @@ render() {
                 </picture>
                 <h3>Name: {this.state.name}</h3>
                 <p>Phone: {this.state.phone}</p>
+                <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Retire</button>
             </div>
         </div>
         );

@@ -5,16 +5,24 @@ import './EmployeeDetail.css'
 class EmployeeDetail extends Component {
 
 state = {
-    name: ""
+    name: "",
+    loadingStatus: true,
     }
 
 componentDidMount(){
     EmployeeManager.get(this.props.employeeId)
         .then((employee) => {
             this.setState({
-                name: employee.name
+                name: employee.name,
+                loadingStatus: false
             });
         });
+}
+
+handleDelete = () => {
+    this.setState({loadingStatus: true})
+    EmployeeManager.delete(this.props.employeeId)
+    .then(() => this.props.history.push("/employees"))
 }
 
 render(){
@@ -25,6 +33,7 @@ render(){
                     <img src={require('./employee.jpg')} alt="Employee" />
                 </picture>
                     <h3>Name: {this.state.name}</h3>
+                <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>You're Fired</button>
             </div>
         </div>
         );

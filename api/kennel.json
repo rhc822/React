@@ -34,6 +34,14 @@
     {
       "id": 2,
       "name": "Bobbina"
+    },
+    {
+      "name": "Carl",
+      "id": 3
+    },
+    {
+      "name": "Zargis",
+      "id": 4
     }
   ],
   "locations": [
@@ -42,8 +50,12 @@
       "address": "500 Puppy Way"
     },
     {
-      "id": 2,
-      "address": "250 Kitten Caboodle Lane"
+      "address": "200 Kitty Way",
+      "id": 2
+    },
+    {
+      "address": "100 Lizard Street",
+      "id": 3
     }
   ],
   "owners": [
@@ -51,6 +63,11 @@
       "id": 1,
       "name": "Jane",
       "phone": "(555)555-5555"
+    },
+    {
+      "name": "Rud",
+      "phone": "(555)555-5555",
+      "id": 2
     }
   ]
 }
