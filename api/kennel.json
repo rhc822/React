@@ -24,6 +24,11 @@
       "name": "Tinker",
       "breed": "Beagle",
       "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Blark",
+      "breed": "Schwarzenegger"
     }
   ],
   "employees": [
@@ -42,6 +47,10 @@
     {
       "name": "Zargis",
       "id": 4
+    },
+    {
+      "name": "Cletus",
+      "id": 5
     }
   ],
   "locations": [
@@ -56,6 +65,10 @@
     {
       "address": "100 Lizard Street",
       "id": 3
+    },
+    {
+      "address": "666 Hellhound Road",
+      "id": 4
     }
   ],
   "owners": [
@@ -68,6 +81,11 @@
       "name": "Rud",
       "phone": "(555)555-5555",
       "id": 2
+    },
+    {
+      "name": "Steph",
+      "phone": "(555)555-5555",
+      "id": 3
     }
   ]
 }

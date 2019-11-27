@@ -14,7 +14,6 @@ import EmployeeDetail from './employee/EmployeeDetail'
 import EmployeeForm from './employee/EmployeeForm'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
-import Login from './auth/Login'
 import OwnerForm from './owner/OwnerForm'
 
 /* This component routes the click in the NavBar file to apporpriate component (e.g. Home, AnimalList, etc). */
