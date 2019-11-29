@@ -2,7 +2,7 @@ import { updateExpression } from "@babel/types"
 
 const remoteURL = "http://localhost:5002"
 
-/* This module fetches the employee info from the database with the "get" and "getAll". The "delete" removes an item from the database. */
+/* This module fetches the employee info from the database with the GET and GETALL. The DELETE removes an item from the database. POST adds an item to the database. UPDATE edits an item. */
 
 export default {
   get(id) {

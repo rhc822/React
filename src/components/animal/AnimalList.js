@@ -39,7 +39,7 @@ deleteAnimal = id => {
 
   render(){
     // console.log("AnimalList: Render");
-    // console.log(this.state.animals)
+    // console.log(this.state)
 
     /* For adding delete, the return definition was modified to include the deleteAnimal function above, which enables AnimalCard to access it. */
 

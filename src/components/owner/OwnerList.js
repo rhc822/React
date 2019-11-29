@@ -45,6 +45,7 @@ render(){
                     key={owner.id}
                     owner={owner}
                     deleteOwner={this.deleteOwner}
+                    {...this.props}
                 />)}
         </div>
         </React.Fragment>

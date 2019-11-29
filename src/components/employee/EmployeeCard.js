@@ -16,7 +16,7 @@ class EmployeeCard extends Component {
                         Edit
                 </button>
                 <Link
-                    to={`/employee/${this.props.employee.id}`}>
+                    to={`/employees/${this.props.employee.id}`}>
                         <button>
                             Details
                         </button>

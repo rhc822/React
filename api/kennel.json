@@ -37,20 +37,16 @@
       "name": "Bob"
     },
     {
-      "id": 2,
-      "name": "Bobbina"
-    },
-    {
-      "name": "Carl",
-      "id": 3
-    },
-    {
       "name": "Cletus",
       "id": 5
     },
     {
       "name": "Plarken",
       "id": 6
+    },
+    {
+      "name": "He-man",
+      "id": 7
     }
   ],
   "locations": [
@@ -61,6 +57,14 @@
     {
       "address": "200 Kitty Way",
       "id": 2
+    },
+    {
+      "address": "100 Best street",
+      "id": 3
+    },
+    {
+      "address": "400 New way",
+      "id": 4
     }
   ],
   "owners": [
@@ -70,14 +74,9 @@
       "phone": "(555)555-5555"
     },
     {
-      "name": "Rud",
-      "phone": "(555)555-5555",
-      "id": 2
-    },
-    {
-      "name": "Steph",
-      "phone": "(555)555-5555",
-      "id": 3
+      "id": 2,
+      "name": "Joe",
+      "phone": "555-555-5555"
     }
   ]
 }

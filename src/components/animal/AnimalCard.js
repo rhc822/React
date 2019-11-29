@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 class AnimalCard extends Component {
   render() {
-    // console.log(this.props)
+    console.log(this.props.animal)
     return (
       <div className="card">
           <div className="card-content">

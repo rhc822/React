@@ -9,6 +9,7 @@ import AnimalEditForm from './animal/AnimalEditForm'
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import LocationForm from './location/LocationForm'
+import LocationEditForm from './location/LocationEditForm'
 import EmployeeEditForm from './employee/EmployeeEditForm'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeDetail from './employee/EmployeeDetail'
@@ -16,8 +17,9 @@ import EmployeeForm from './employee/EmployeeForm'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
 import OwnerForm from './owner/OwnerForm'
+import OwnerEditForm from './owner/OwnerEditForm'
 
-/* This component routes the click in the NavBar file to apporpriate component (e.g. Home, AnimalList, etc). */
+/* This component routes all links to the apporpriate component (e.g. Home, AnimalList, etc). */
 
 class ApplicationViews extends Component {
 
@@ -66,10 +68,6 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
             return <AnimalEditForm {...props} />
           }} />
 
-        <Route path="/employees/:employeeId(\d+)/edit" render={props => {
-          return <EmployeeEditForm {...props} />
-        }} />
-
         <Route exact path="/employees" render={(props) => {
           if (this.isAuthenticated()) {
             return <EmployeeList {...props}/>
@@ -80,6 +78,10 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
 
         <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
             return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} {...props}/>
+        }} />
+
+        <Route path="/employees/:employeeId(\d+)/edit" render={props => {
+          return <EmployeeEditForm {...props} />
         }} />
 
         <Route path="/employees/new" render={(props) => {
@@ -94,13 +96,19 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
           }
         }} />
 
-        <Route path="/locations/:locationId(\d+)" render={(props) => {
-          return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props}/>
-        }} />
-
         <Route path="/locations/new" render={(props) => {
           return <LocationForm {...props} />
         }} />
+
+        <Route exact path="/locations/:locationId(\d+)" render={(props) => {
+          return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props}/>
+        }} />
+
+        <Route
+          path="/locations/:locationId(\d+)/edit" render={props => {
+            return <LocationEditForm {...props} />
+          }}
+        />
 
         <Route exact path="/owners" render={(props) => {
           if (this.isAuthenticated()) {
@@ -110,10 +118,16 @@ isAuthenticated = () => localStorage.getItem("credentials") !== null
           }
         }} />
 
-        <Route path="/owners/:ownerId(\d+)" render={(props) => {
+        <Route exact path="/owners/:ownerId(\d+)" render={(props) => {
           return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)}
           {...props}/>
         }} />
+
+        <Route
+          path="/owners/:ownerId(\d+)/edit" render={props => {
+            return <OwnerEditForm {...props} />
+          }}
+        />
 
         <Route path='/owners/new' render={(props) => {
           return <OwnerForm { ...props} />

@@ -37,7 +37,6 @@ handleDelete = () => {
 
 /* This section puts the info on the DOM */
     render() {
-        console.log(this.props.history)
         return (
             <div className="card">
                 <div className="card-content">

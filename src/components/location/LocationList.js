@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import LocationCard from './LocationCard'
 import LocationsManager from '../../modules/LocationsManager'
-import AnimalManager from '../../modules/AnimalManager'
 
 class LocationList extends Component {
     state = {
@@ -10,9 +9,9 @@ class LocationList extends Component {
 
 componentDidMount(){
     LocationsManager.getAll()
-    .then((location) => {
+    .then((locationArray) => {
         this.setState({
-            locations: location
+            locations: locationArray
         })
     })
 }
@@ -30,7 +29,7 @@ deleteLocation = id => {
 }
 
 render(){
-    // console.log(this.state)
+    console.log(this.state.locations)
     return(
         <React.Fragment>
         <section className="section-content">
@@ -47,6 +46,7 @@ render(){
                     key={location.id}
                     location={location}
                     deleteLocation={this.deleteLocation}
+                    {...this.props}
                 />)}
         </div>
         </React.Fragment>
